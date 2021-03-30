@@ -3,6 +3,7 @@ project(video-playground C CXX)
 set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(lib/glfw)
+add_subdirectory(lib/FFmpeg)
 
 add_definitions(-DGL_SILENCE_DEPRECATION)
 
@@ -11,4 +12,4 @@ if(APPLE)
 endif()
 
 add_executable(video-playground src/main.cpp)
-target_link_libraries(video-playground glfw ${EXTRA_LIBS})
+target_link_libraries(video-playground FFmpeg glfw ${EXTRA_LIBS})
