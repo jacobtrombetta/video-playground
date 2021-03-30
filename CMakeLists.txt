@@ -6,9 +6,9 @@ add_subdirectory(lib/glfw)
 
 add_definitions(-DGL_SILENCE_DEPRECATION)
 
-add_executable(video-playground src/main.cpp)
-target_link_libraries(video-playground glfw)
-
 if(APPLE)
-    target_link_libraries(video-playground "-framework OpenGL")
+    list(APPEND EXTRA_LIBS "-framework OpenGL")
 endif()
+
+add_executable(video-playground src/main.cpp)
+target_link_libraries(video-playground glfw ${EXTRA_LIBS})
