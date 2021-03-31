@@ -11,5 +11,9 @@ if(APPLE)
     list(APPEND EXTRA_LIBS "-framework OpenGL")
 endif()
 
-add_executable(video-playground src/main.cpp)
+list(APPEND SOURCES
+  src/main.cpp
+  src/load_frame.cpp
+)
+add_executable(video-playground ${SOURCES})
 target_link_libraries(video-playground FFmpeg glfw ${EXTRA_LIBS})
